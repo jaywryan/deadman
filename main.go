@@ -46,7 +46,7 @@ func main() {
 	http.Handle("/", simpleHandler(pinger))
 	go http.ListenAndServe(":9095", nil)
 
-	logger := promlog.New(cfg.logLevel)
+	logger := promlog.New(&cfg.logLevel)
 
 	d, err := NewDeadMan(pinger, time.Duration(cfg.interval), cfg.amURL, log.With(logger, "component", "deadman"))
 	if err != nil {
