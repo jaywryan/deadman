@@ -21,7 +21,7 @@ func main() {
 	cfg := struct {
 		amURL    string
 		interval model.Duration
-		logLevel promlog.AllowedLevel
+		logLevel promlog.Config
 	}{}
 
 	app := kingpin.New(filepath.Base(os.Args[0]), "A deadman's snitch for Prometheus Alertmanager compatible notifications.")
@@ -33,6 +33,7 @@ func main() {
 		Default("30s").SetValue(&cfg.interval)
 
 	promlogflag.AddFlags(app, &cfg.logLevel)
+	promlogflag.
 
 	_, err := app.Parse(os.Args[1:])
 	if err != nil {
