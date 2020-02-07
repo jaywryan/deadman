@@ -33,7 +33,6 @@ func main() {
 		Default("30s").SetValue(&cfg.interval)
 
 	promlogflag.AddFlags(app, &cfg.logLevel)
-	promlogflag.
 
 	_, err := app.Parse(os.Args[1:])
 	if err != nil {
